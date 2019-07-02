@@ -19,3 +19,10 @@ but with different parameters than provided by default for speed.
 
 
 WIP: Results subject to change/updating at any time.
+
+
+![](results/example.png?raw=true)
+
+(left) 2mm data (center) SR applied to 2mm (right) real 1mm data
+
+

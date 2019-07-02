@@ -278,7 +278,7 @@ for ( x in 1:length( inputFileName ) ) {
      strides = rep( 2, img@dimension ),
      numberOfLossFunctions = 1, interpolationType = 'nearest' )
   set_weights( woo, get_weights( mdl ) )
-  mysr = applySuperResolutionModel( img, woo )
+  mysr = applySuperResolutionModel( img, woo, targetRange = c( 127.5, -127.5) )
   dir.create( file.path( './', 'results'), showWarnings = FALSE)
   antsImageWrite( mysr, paste0( './results/', outfn, "_SR.nii.gz" ) )
 }

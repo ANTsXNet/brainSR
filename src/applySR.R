@@ -269,8 +269,7 @@ perceptualDBPN3D <- function( inputImageSize,
 mdl = load_model_hdf5( modelFile )
 for ( x in 1:length( inputFileName ) ) {
   outfn = tools::file_path_sans_ext( basename( inputFileName[ x ] ), T )
-  outfn = ps
-  print( outfn )
+  print( paste( "Apply SR to:", inputFileName[ x ]  ) )
   img = antsImageRead( inputFileName[ x ] )
   woo = perceptualDBPN3D( c( dim(img),  1 ),
      numberOfOutputs = 1, numberOfBaseFilters = 64,

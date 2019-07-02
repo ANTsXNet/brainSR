@@ -26,3 +26,7 @@ WIP: Results subject to change/updating at any time.
 (left) 2mm data (center) SR applied to 2mm (right) real 1mm data
 
 
+
+![](results/example2.png?raw=true)
+
+(left) 2mm data (center) SR applied to 1mm to get pseudo 0.5mm (right) real 1mm data

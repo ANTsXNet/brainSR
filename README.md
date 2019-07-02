@@ -30,3 +30,6 @@ WIP: Results subject to change/updating at any time.
 ![](results/example2.png?raw=true)
 
 (left) 2mm data (center) SR applied to 1mm to get pseudo 0.5mm (right) real 1mm data
+
+Note: there is a small noise artifact present on alternating sagittal slices.
+Future versions will provide a remedy.

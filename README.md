@@ -10,3 +10,4 @@ super resolution for 3D data
 Rscript src/applySR.R "data/*nii.gz" models/brainSR_48vgg.h5
 ```
 
+this should be run on CPU *not GPU*

@@ -17,9 +17,9 @@ employ `applySR_GPU.R` for GPU or on CPU if memory is an issue.
 if CPU fails ( memory ) then one may need to apply the GPU version
 but with different parameters than provided by default for speed.
 
+The GPU version may require some ensembling to reduce stitching artifacts.
 
 WIP: Results subject to change/updating at any time.
-
 
 ![](results/example.png?raw=true)
 
@@ -31,5 +31,3 @@ WIP: Results subject to change/updating at any time.
 
 (left) 2mm data (center) SR applied to 1mm to get pseudo 0.5mm (right) real 1mm data
 
-Note: there is a small noise artifact present on alternating sagittal slices.
-Future versions will provide a remedy.

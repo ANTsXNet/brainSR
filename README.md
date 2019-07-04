@@ -31,3 +31,7 @@ WIP: Results subject to change/updating at any time.
 
 (left) 2mm data (center) SR applied to 1mm to get pseudo 0.5mm (right) real 1mm data
 
+![](results/example3.png?raw=true) 
+
+Coronal slice: real 1mm data (left) vs SR applied to 1mm to get pseudo 0.5mm (right).
+

@@ -45,3 +45,4 @@ done
 Rscript src/averageImages.R "results_GPU/testData_strid*SR.nii.gz" results_GPU/ensemble.nii.gz
 ```
 
+This result can be found [here](https://doi.org/10.6084/m9.figshare.8776304.v1).

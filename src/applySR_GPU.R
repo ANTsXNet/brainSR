@@ -18,6 +18,7 @@ doPerm = FALSE
 if ( length( args ) > 2 ) strideLength = as.numeric( as.character( args[3] ) )
 if ( length( args ) > 3 ) doCrop = as.logical( as.character( args[4] ) )
 if ( length( args ) > 4 ) doPerm = as.logical( as.character( args[5] ) )
+print( paste( "Options:", doCrop, doPerm ) )
 mdl = load_model_hdf5( modelFile )
 for ( x in 1:length( inputFileName ) ) {
   outfn = tools::file_path_sans_ext( basename( inputFileName[ x ] ), T )

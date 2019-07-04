@@ -35,3 +35,13 @@ WIP: Results subject to change/updating at any time.
 
 Coronal slice: real 1mm data (left) vs SR applied to 1mm to get pseudo 0.5mm (right).
 
+
+Ensembling:
+
+```
+for x in 10 14 17 19 ; do 
+  Rscript src/applySR_GPU.R data/testData.nii.gz models/brainSR.h5 $x FALSE FALSE 
+done
+Rscript src/averageImages.R "results_GPU/testData_strid*SR.nii.gz" results_GPU/ensemble.nii.gz
+```
+

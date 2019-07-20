@@ -27,7 +27,7 @@ for ( x in 1:length( inputFileName ) ) {
   imgmask = getMask( img )
   cimg = cropImage( img, imgmask )
   if ( !doCrop ) cimg = img
-  mdl = createDeepBackProjectionNetworkModel3D( c( dim( cimg ),  1 ),
+  mdl = createDeepBackProjectionNetworkModel3D( c( 24, 24, 24,  1 ),
      numberOfOutputs = 1, numberOfBaseFilters = 64,
      numberOfFeatureFilters = 256, numberOfBackProjectionStages = 7,
      convolutionKernelSize = rep( 3, 3 ),

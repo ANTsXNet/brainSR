@@ -14,11 +14,19 @@ if( length( args ) != 2 )
   modelFile <- args[2]
   }
 
-mdl = load_model_hdf5( modelFile )
+# mdl = load_model_hdf5( modelFile )
 for ( x in 1:length( inputFileName ) ) {
   outfn = tools::file_path_sans_ext( basename( inputFileName[ x ] ), T )
   print( paste( "Apply SR to:", inputFileName[ x ]  ) )
   img = antsImageRead( inputFileName[ x ] )
+  mdl = createDeepBackProjectionNetworkModel3D( c( dim( img ),  1 ),
+     numberOfOutputs = 1, numberOfBaseFilters = 64,
+     numberOfFeatureFilters = 256, numberOfBackProjectionStages = 7,
+     convolutionKernelSize = rep( 3, 3 ),
+     strides = rep( 2, 3 ),
+     numberOfLossFunctions = 1 )
+  load_model_weights_hdf5( mdl, modelFile )
+  print('Begin')
   mysr = applySuperResolutionModel( img, mdl, targetRange = c( 127.5, -127.5) )
   dir.create( file.path( './', 'results'), showWarnings = FALSE)
   antsImageWrite( mysr, paste0( './results/', outfn, "_SR.nii.gz" ) )

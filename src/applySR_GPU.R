@@ -1,7 +1,6 @@
 library( ANTsRNet )
 library( tensorflow )
 library( keras )
-library(PerMallows)
 args <- commandArgs( trailingOnly = TRUE )
 
 if ( length( args ) < 2 )
@@ -27,6 +26,7 @@ if ( length( args ) > 3 ) doCrop = as.numeric( as.character( args[4] ) )
 if ( length( args ) > 4 ) doPerm = as.numeric( as.character( args[5] ) )
 if ( length( args ) > 5 ) doTrans = as.numeric( as.character( args[6] ) )
 print( paste( "Options= Crop:", doCrop, "doPerm: ", doPerm, "doTrans: ", doTrans) )
+if ( doPerm > 0 ) library(PerMallows)
 # mdl = load_model_hdf5( modelFile )
 for ( x in 1:length( inputFileName ) ) {
   outfn = tools::file_path_sans_ext( basename( inputFileName[ x ] ), T )
@@ -43,6 +43,7 @@ for ( x in 1:length( inputFileName ) ) {
      strides = rep( 2, 3 ),
      numberOfLossFunctions = 1 )
   load_model_weights_hdf5( mdl, modelFile )
+  
   print("Begin")
   iarr = list()
   if ( doTrans == 0 | doPerm > 0 ) {
@@ -75,7 +76,7 @@ for ( x in 1:length( inputFileName ) ) {
       return( applyAntsrTransform( transform = invertAntsrTransform( moveX1 ), data=srout, reference=srout, interpolation=interpolation  ) )
       }
     for ( dp in 1:doTrans ) {
-      scl = 3.0
+      scl = 0.5
       trns = antsGetSpacing( cimg ) * rnorm(3) * scl
       cat( paste0("...aug-",dp,"-t=/\n", paste0( trns, collapse='x' ), '\n/x<o>x' ) )
       iarr[[ length(iarr) + 1 ]] = augger( cimg, trns )

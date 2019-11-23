@@ -21,8 +21,8 @@ if ( length( args ) < 2 )
   if ( length( args ) >= 4 ) nAugmentations = as.numeric( args[4] )
   if ( length( args ) >= 5 ) blendingWeight = as.numeric( args[5] )
   }
-cat("Options =
-  <input> modelFile patchBased nAugmentations blendingWeight\n")
+cat( paste("Options = ", "
+  <input> ", modelFile, patchBased, nAugmentations, blendingWeight, "\n") )
 
 # mdl = load_model_hdf5( modelFile )
 for ( x in 1:length( inputFileName ) ) {

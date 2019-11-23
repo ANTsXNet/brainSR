@@ -52,7 +52,7 @@ for ( x in 1:length( inputFileName ) ) {
   for ( k in 1:nAugmentations ) {
     cat( paste0("...",k,"") )
     scl = 0.5
-    iaug[[k]] = augger( img, antsGetSpacing( img ) * rnorm(3) * scl )
+    iaug[[k]] = augger( img, antsGetSpacing( img ) * rnorm(3) * scl, patchBased = patchBased )
     }
   wt = blendingWeight
   mysr = antsAverageImages( iaug, normalize=FALSE )

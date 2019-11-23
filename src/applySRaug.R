@@ -58,5 +58,5 @@ for ( x in 1:length( inputFileName ) ) {
   mysr = antsAverageImages( iaug, normalize=FALSE )
   mysr2 = mysr * (1-wt) + iMath( mysr, "Sharpen" ) * wt
   dir.create( file.path( './', 'results'), showWarnings = FALSE)
-  antsImageWrite( mysr, paste0( './results/', outfn, "_SR.nii.gz" ) )
+  antsImageWrite( mysr2, paste0( './results/', outfn, "_SR.nii.gz" ) )
   }

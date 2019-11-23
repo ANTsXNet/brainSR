@@ -10,7 +10,9 @@ if ( length( args ) < 2 )
   helpMessage <- paste0( "Usage:
   Rscript applySR.R inputFiles modelFile
     optional-patch-based-bool optional-nAugmentations optional-blendingWeight
-    where 0<= blendingWeight <= 1 " )
+    where 0<= blendingWeight <= 1 \n
+    User should set patch-based to TRUE if using GPU and FALSE for CPU. \n
+    User should set nAugmentations >=5 to limit bias or artifacts. " )
   stop( helpMessage )
   } else {
   inputFileName <- Sys.glob( args[1] )

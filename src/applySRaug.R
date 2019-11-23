@@ -21,13 +21,17 @@ if ( length( args ) < 2 )
   if ( length( args ) >= 4 ) nAugmentations = as.numeric( args[4] )
   if ( length( args ) >= 5 ) blendingWeight = as.numeric( args[5] )
   }
+cat("Options =
+  <input> modelFile patchBased nAugmentations blendingWeight\n")
 
 # mdl = load_model_hdf5( modelFile )
 for ( x in 1:length( inputFileName ) ) {
   outfn = tools::file_path_sans_ext( basename( inputFileName[ x ] ), T )
   print( paste( "Apply SR to:", inputFileName[ x ]  ) )
   img = antsImageRead( inputFileName[ x ] )
-  mdl = createDeepBackProjectionNetworkModel3D( c( 24, 24, 24,  1 ),
+  inputsize = list( NULL, NULL, NULL, 1 )
+  if ( patchBased ) inputsize = list( 24, 24, 24,  1 )
+  mdl = createDeepBackProjectionNetworkModel3D( inputsize,
      numberOfOutputs = 1, numberOfBaseFilters = 64,
      numberOfFeatureFilters = 256, numberOfBackProjectionStages = 7,
      convolutionKernelSize = rep( 3, 3 ),
